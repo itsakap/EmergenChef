@@ -1,1 +1,9 @@
-<%= current_user.username %>
+<h1>This is the current user</h1>
+<%= current_user.username if current_user%>
+
+<h1>These are all of the users</h1>
+<% @users.each do |u| %>
+  <%= u.username %>
+<% end %>
+
+<%= link_to 'sign out', auths_path, {method: :delete} %>

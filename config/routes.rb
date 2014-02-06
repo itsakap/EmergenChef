@@ -1,8 +1,14 @@
 EmergenChef::Application.routes.draw do
-  
-  resources :users, only:[:index, :new, :create]
-  resources :auths, only:[:new, :create, :destroy]
   root 'users#index'
+  get 'users' => 'users#index', :as => :users
+  post 'users' => 'users#create'
+  get 'sign_up' => 'users#new', :as => :new_user
+  #resources :users, only:[:index, :new, :create]
+
+  delete 'sign_out' => 'auths#destroy', :as => :auths
+  get 'sign_in' => 'auths#new', :as => :new_auth
+  resources :auths, only:[ :create]
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
