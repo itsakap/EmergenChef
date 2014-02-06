@@ -1,0 +1,16 @@
+<%= form_for(@user) do |f| %>
+  <div class = "field">
+    <%= f.label :post, "Your Startup's Name" %>
+    <%= f.text_field :username %>
+  </div>
+  <div class = "field">
+    <%= f.label "Password" %>
+    <%= f.password_field :password %>
+  </div>
+  <div class = "field">
+    <%= f.label :post, "Confirm Password" %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <%= f.submit %>
+<% end %>
