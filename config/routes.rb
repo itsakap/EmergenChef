@@ -1,4 +1,14 @@
 EmergenChef::Application.routes.draw do
+=begin
+  delete 'destroy_order' => 'orders#destroy', :as => :destroy_order_path
+  post 'orders' => 'orders#create'
+  update method
+=end
+  get "orders" => "orders#index", :as => :orders
+  get "orders/new" => 'orders#new', :as => :new_order
+  resources :orders, only:[:create, :destroy, :edit, :update]
+  get "orders/edit"
+  get 'orders/:id' => 'orders#show', :as => :show_order
   root 'users#index'
   get 'users' => 'users#index', :as => :users
   post 'users' => 'users#create'

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  party_size: 1
+  dietary_preferences: MyString
+  address: MyString
+  emergency_date: 2014-02-07 10:03:10
+  reason_for_event: MyString
+  user_id: 
+
+two:
+  party_size: 1
+  dietary_preferences: MyString
+  address: MyString
+  emergency_date: 2014-02-07 10:03:10
+  reason_for_event: MyString
+  user_id: 

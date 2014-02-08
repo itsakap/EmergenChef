@@ -10,6 +10,8 @@ class User
   field :salt, type: String
   before_save :hash_the_password
 
+  
+  has_many :orders
 
   def passes_authentication?(password_to_check)
     BCrypt::Password.new(self.hashed_password).is_password?(password_to_check)

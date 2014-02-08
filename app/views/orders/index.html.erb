@@ -1,0 +1,11 @@
+<h1>My orders</h1>
+<ul>
+
+  <% @orders.each do |o| %>
+    <li>
+      <%= o.dietary_preferences %>
+      <%= link_to 'edit', edit_order_path(o) %>
+      <%= link_to 'delete', o, {method: :delete} %>
+    </li>
+  <% end %>
+</ul>
