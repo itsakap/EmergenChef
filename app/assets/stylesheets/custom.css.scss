@@ -1,4 +1,13 @@
+
+$navbar-default-bg: #000aaa;
+$navbar-height:180px;
+$navbar-padding-vertical:40px;
+.navbar-brand{
+  width:390px;
+  height:180px;
+  background-image:url(logo.png);
+  background-size:cover;
+}
+@import 'bootstrap';
 .row{margin:0;
  }
-$navbar-default-bg: #ad43c3;
-@import 'bootstrap';
