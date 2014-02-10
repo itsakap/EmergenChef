@@ -1,16 +1,12 @@
 require 'bcrypt'
 class User
   include Mongoid::Document
-
   attr_accessor :password, :password_confirmation
-
-  
   field :username, type: String
   field :hashed_password, type: String
   field :salt, type: String
+  field :email_address, type: String
   before_save :hash_the_password
-
-  
   has_many :orders
 
   def passes_authentication?(password_to_check)
