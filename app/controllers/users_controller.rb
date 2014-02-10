@@ -14,7 +14,7 @@ private
   #def set_user?
   #end
   def user_params
-    params.require(:user).permit(:username, :salt, :hashed_password)
+    params.require(:user).permit(:username, :email_address, :salt, :hashed_password)
   end
 
 end
