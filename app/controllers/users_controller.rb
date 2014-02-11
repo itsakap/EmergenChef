@@ -11,8 +11,11 @@ class UsersController < ApplicationController
 
     Confirmer.welcome(creation).deliver
     redirect_to root_path
+    flash[:notice] = "A confirmation e-mail has been sent to your account"
     
   end
+
+
 private
   #def set_user?
   #end
