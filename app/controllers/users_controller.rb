@@ -6,8 +6,9 @@ class UsersController < ApplicationController
     @user = User.new
   end
   def create
-    creation = params.require(:user).permit(:username, :email_address,:password)
+    creation = params.require(:user).permit(:username, :email_address,:password, :password_confirmation,:is_verified)
     if creation[:password] == creation[:password_confirmation]
+      creation[:is_verified] = false
       User.create(creation)
       Confirmer.welcome(creation).deliver
       redirect_to root_path

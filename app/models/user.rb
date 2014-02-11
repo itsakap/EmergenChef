@@ -6,6 +6,8 @@ class User
   field :hashed_password, type: String
   field :salt, type: String
   field :email_address, type: String
+  field :is_verified, type: Mongoid::Boolean
+  
   before_save :hash_the_password
   has_many :orders
 
