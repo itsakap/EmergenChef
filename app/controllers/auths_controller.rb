@@ -11,6 +11,9 @@ class AuthsController < ApplicationController
     if @user.passes_authentication?(params[:user][:password])
       session[:user_id] = @user.id
       redirect_to users_path
+    else
+      redirect_to new_auth_path
+      flash[:notice] = 'not cool, homie'
     end
   end
   

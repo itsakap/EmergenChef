@@ -21,9 +21,11 @@ class UsersController < ApplicationController
 
   def verify
     @user = User.find(params[:id])
+    puts @user
     if @user.verification_token == params[:verification_token]
-      @user.is_verified = true
+      @user.update(:is_verified => true, :verification_token => nil)
       redirect_to new_auth_path
+      flash[:notice] = 'you are so cool'
     else
       flash[:notice] = "fuck off you evil hacker bitch fart"
       redirect_to root_path

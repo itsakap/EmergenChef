@@ -10,11 +10,11 @@ EmergenChef::Application.routes.draw do
   get "orders/edit"
   get 'orders/:id' => 'orders#show', :as => :show_order
   root 'users#index'
+  get 'users/:id/verify/:verification_token' => 'users#verify', :as => :verify_user
   get 'users' => 'users#index', :as => :users
   post 'users' => 'users#create'
   get 'sign_up' => 'users#new', :as => :new_user
   #resources :users, only:[:index, :new, :create]
-  patch 'users/:id/verify/:verification_token' => 'users#verify', :as => :verify_user
   delete 'sign_out' => 'auths#destroy', :as => :auths
   get 'sign_in' => 'auths#new', :as => :new_auth
   resources :auths, only:[ :create]
