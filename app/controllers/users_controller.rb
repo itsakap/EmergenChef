@@ -7,14 +7,20 @@ class UsersController < ApplicationController
   end
   def create
     creation = params.require(:user).permit(:username, :email_address,:password)
-    User.create(creation)
-
-    Confirmer.welcome(creation).deliver
-    redirect_to root_path
-    flash[:notice] = "A confirmation e-mail has been sent to your account"
-    
+    if creation[:password] == creation[:password_confirmation]
+      User.create(creation)
+      Confirmer.welcome(creation).deliver
+      redirect_to root_path
+      flash[:notice] = "A confirmation e-mail has been sent to your account."
+    else
+      redirect_to new_user_path
+      flash[:notice] = "Please confirm your password properly."
+    end
   end
 
+  def update
+    
+  end
 
 private
   #def set_user?
