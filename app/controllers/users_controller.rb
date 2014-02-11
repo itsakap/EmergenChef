@@ -6,11 +6,11 @@ class UsersController < ApplicationController
     @user = User.new
   end
   def create
-    creation = params.require(:user).permit(:username, :email_address,:password, :password_confirmation,:is_verified)
+    creation = params.require(:user).permit(:username, :email_address,:password, :password_confirmation,:is_verified, :verification_token)
+    @user = User.new(creation)
     if creation[:password] == creation[:password_confirmation]
-      creation[:is_verified] = false
-      User.create(creation)
-      Confirmer.welcome(creation).deliver
+      @user.save
+      Confirmer.welcome(@user).deliver
       redirect_to root_path
       flash[:notice] = "A confirmation e-mail has been sent to your account."
     else
@@ -19,8 +19,15 @@ class UsersController < ApplicationController
     end
   end
 
-  def update
-    
+  def verify
+    @user = User.find(params[:id])
+    if @user.verification_token == params[:verification_token]
+      @user.is_verified = true
+      redirect_to new_auth_path
+    else
+      flash[:notice] = "fuck off you evil hacker bitch fart"
+      redirect_to root_path
+    end
   end
 
 private
