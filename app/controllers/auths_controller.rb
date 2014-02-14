@@ -8,8 +8,9 @@ class AuthsController < ApplicationController
   end
   
   def create
-    @user = User.find_by(username: params[:user][:username])
-    unless @user.nil?
+    user = User.where(username: params[:user][:username])
+    if user.count > 0
+      @user = user[0]
       if @user.passes_authentication?(params[:user][:password])
         if @user.is_verified?
           session[:user_id] = @user.id
