@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :check_login
   def index
     if current_user
       @orders = current_user.orders
@@ -72,5 +73,10 @@ class OrdersController < ApplicationController
     end
     def order_params
       params.require(:order).permit(:party_size, :dietary_preferences, :address, :emergency_date, :reason_for_event)
+    end
+    def check_login
+      unless current_user
+        redirect_to new_auth_path
+      end
     end
 end

@@ -9,7 +9,7 @@ EmergenChef::Application.routes.draw do
   resources :orders, only:[:create, :destroy, :edit, :update]
   get "orders/edit"
   get 'orders/:id' => 'orders#show', :as => :show_order
-  root 'users#index'
+  root 'users#welcome'
   get 'users/:id/verify/:verification_token' => 'users#verify', :as => :verify_user
   get 'users' => 'users#index', :as => :users
   post 'users' => 'users#create'

@@ -3,7 +3,10 @@ class UsersController < ApplicationController
     @users = User.all
   end
   def new
-    @user = User.new
+    unless current_user
+      @user = User.new
+    else redirect_to root_path
+    end
   end
   def create
     creation = params.require(:user).permit(:username, :email_address,:password, :password_confirmation,:is_verified?, :verification_token)
