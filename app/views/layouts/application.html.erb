@@ -66,6 +66,14 @@ WE MIGHT FIND FUTURE USE FOR A SEARCH BAR......
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav></div>
+    <% if current_user %>
+      Logged in as <%= current_user.username %>
+      <%= link_to 'Sign Out', auths_path, {method: :delete} %>
+    <% else %>
+      <%= link_to 'Sign In', new_auth_path %>
+      |
+      <%= link_to 'Sign Up', new_user_path %>
+    <% end %>
   </header>
 <%= yield %>
 

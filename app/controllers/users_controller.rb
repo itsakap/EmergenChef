@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @user = User.new(creation)
     if creation[:password] == creation[:password_confirmation]
       @user.save
-      Confirmer.welcome(@user).deliver
+      Confirmer.delay.welcome(@user)
       redirect_to root_path
       flash[:notice] = "A confirmation e-mail has been sent to your account."
     else

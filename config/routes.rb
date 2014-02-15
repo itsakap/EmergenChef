@@ -1,4 +1,5 @@
 EmergenChef::Application.routes.draw do
+  require 'sidekiq/web'
 =begin
   delete 'destroy_order' => 'orders#destroy', :as => :destroy_order_path
   post 'orders' => 'orders#create'
@@ -19,6 +20,7 @@ EmergenChef::Application.routes.draw do
   get 'sign_in' => 'auths#new', :as => :new_auth
   resources :auths, only:[ :create]
   
+  mount Sidekiq::Web => '/sidekiq'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
