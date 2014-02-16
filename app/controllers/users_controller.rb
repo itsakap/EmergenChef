@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
+    if current_user
+      redirect_to current_user
+    end
   end
   def new
     unless current_user
@@ -13,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.new(creation)
     if creation[:password] == creation[:password_confirmation] && @user.save
       
-      Confirmer.welcome(@user).deliver
+      Confirmer.delay.welcome(@user.id)
       redirect_to root_path
       flash[:notice] = "A confirmation e-mail has been sent to your account."
     else
@@ -33,7 +36,25 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
   end
+  def show
+    unless current_user
+      redirect_to new_auth_path
+    end
+    unless current_user.profile
+      Profile.create(user: current_user)
 
+    end
+  end
+  def update
+    unless current_user
+      redirect_to new_auth_path
+    else
+      if current_user.update(params.require(:user).permit(:email, profile_attributes: [:phone_number, :startup_name]))
+
+        redirect_to current_user
+      end
+    end
+  end
 private
 
   def user_params

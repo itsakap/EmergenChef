@@ -8,10 +8,17 @@ class User
   field :email_address, type: String
   field :verification_token, type: String, default: ->{random_token}
   field :is_verified?, type: Mongoid::Boolean, default: false
+
   before_save :hash_the_password
+
   has_many :orders
+
   validates_uniqueness_of :username
 
+  has_one :profile
+  accepts_nested_attributes_for :profile
+
+  
   def passes_authentication?(password_to_check)
     BCrypt::Password.new(self.hashed_password).is_password?(password_to_check)
   end

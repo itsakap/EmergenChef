@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  startup_name: MyString
+  address: MyString
+  phone_number: MyString
+  how_frequently_your_team_pulls_all_nighters: MyString
+  party_size: 1
+  dietary_preferences: MyString
+  favorite_foods: MyString
+  credit_card_number: MyString
+  expiration_date: MyString
+  cvv: MyString
+
+two:
+  startup_name: MyString
+  address: MyString
+  phone_number: MyString
+  how_frequently_your_team_pulls_all_nighters: MyString
+  party_size: 1
+  dietary_preferences: MyString
+  favorite_foods: MyString
+  credit_card_number: MyString
+  expiration_date: MyString
+  cvv: MyString

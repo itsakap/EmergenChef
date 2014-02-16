@@ -1,0 +1,9 @@
+<%= form_for current_user do |f| %>
+  <%= f.fields_for :profile do |p| %>
+    <%= p.text_field :startup_name %>
+    <%= p.text_field :phone_number %>
+  <% end %>
+  <%= f.email_field :email_address %>
+  
+  <%= f.submit %>
+<% end %>
