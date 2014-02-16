@@ -1,5 +1,48 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
+// You can use Sass (SCSS) here: http://sass-lang.com
 @import 'bootstrap';
+#video-nest{
+  width:560px;
+  height:600px;
+  margin:0 auto 2em;
+  overflow-x:hidden;
+  text-align: center;
+  position:relative;
+  video{
+    margin: 0 auto;
+    z-index:-1;
+    position:absolute;
+    left:15px;
+    top:90px;
+  }
+  #tv-nest{
+    width: 560px;
+    height:600px;
+    background:url(TV-Frame.png);
+    position:absolute;
+    background-repeat:no-repeat;
+    background-position:-220px;
+    top:0;
+    left:0;
+  }
+ }
+.panel{
+  position:absolute;
+  width:300px;
+  height:240px;
+  bottom:10em;
+  .panel-body{
+    p:first-letter{
+      padding-left: 1em;
+    }
+  }
+
+}
+  .panel-danger{
+    left:2em;
+  }
+  .panel-info{
+    right:2em;
+  }
+

@@ -42,8 +42,7 @@
               </ul>
             </li>
           </ul>
-          <!--
-WE MIGHT FIND FUTURE USE FOR A SEARCH BAR......
+          <!--WE MIGHT FIND FUTURE USE FOR A SEARCH BAR......
           <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Search">
@@ -65,15 +64,17 @@ WE MIGHT FIND FUTURE USE FOR A SEARCH BAR......
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
+    <div class = "text-right"><% if current_user %>
+          Logged in as <%= current_user.username %>
+          &nbsp;|&nbsp;
+          <%= link_to 'Sign Out', auths_path, {method: :delete} %>
+        <% else %>
+          <%= link_to 'Sign In', new_auth_path %>
+          or
+          <%= link_to 'Sign Up', new_user_path %>
+          &mdash; you're missing out
+        <% end %></div>
     </nav></div>
-    <% if current_user %>
-      Logged in as <%= current_user.username %>
-      <%= link_to 'Sign Out', auths_path, {method: :delete} %>
-    <% else %>
-      <%= link_to 'Sign In', new_auth_path %>
-      |
-      <%= link_to 'Sign Up', new_user_path %>
-    <% end %>
   </header>
 <%= yield %>
 
