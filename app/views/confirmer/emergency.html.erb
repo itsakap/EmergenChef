@@ -5,19 +5,19 @@
       <h1><%= @account.profile.startup_name %> Needs an Emergen-Chef Tonight!</h1>
       <h2>User Info:</h2>
         <ul>
-          <li>Name: <%= @account.profile.startup_name %></li>
-          <li>Email: <%= @account.email_address %></li>
-          <li>User Address: <%= @account.profile.address %></li>
-          <li>Phone Number: <%= @account.profile.phone_number %></li>
-          <li>Frequency of All Nighters: <%= @account.profile.how_frequently_your_team_pulls_all_nighters %></li>
-          <li>Favorite Foods: <%= @account.profile.favorite_foods %></li>
+          <li><strong>Name:</strong> <%= @account.profile.startup_name %></li>
+          <li><strong>Email:</strong> <%= @account.email_address %></li>
+          <li><strong>User Address:</strong> <%= @account.profile.address %></li>
+          <li><strong>Phone Number:</strong> <%= @account.profile.phone_number %></li>
+          <li><strong>Frequency of All Nighters:</strong> <%= @account.profile.how_frequently_your_team_pulls_all_nighters %></li>
+          <li><strong>Favorite Foods:</strong> <%= @account.profile.favorite_foods %></li>
         </ul>
       <h2>Order Info:</h2>
         <ul>
-          <li>Name: <%= @ord.name %></li>
-          <li>Order Address: <%= @ord.address %></li>
-          <li>Order Dietary Preferences: <%= @ord.dietary_preferences %></li>
-          <li>Reason for Event: <%= @ord.reason_for_event %></li>
+          <li><strong>Name:</strong> <%= @ord.name %></li>
+          <li><strong>Order Address:</strong> <%= @ord.address %></li>
+          <li><strong>Any Dietary Preferences?</strong> <%= @ord.dietary_preferences %></li>
+          <li><strong>Reason for Event:</strong> <%= @ord.reason_for_event %></li>
         </ul>
      </div>
 
