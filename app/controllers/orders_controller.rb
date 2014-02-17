@@ -47,7 +47,7 @@ class OrdersController < ApplicationController
     if current_user
       respond_to do |format|
         if @order.update(order_params)
-          format.html { redirect_to @order, notice: 'Order was successfully updated.' }
+          format.html { redirect_to edit_order_path(@order), notice: 'Order was successfully updated.' }
           format.json { head :no_content }
         else
           format.html { render action: 'edit' }
@@ -72,7 +72,7 @@ class OrdersController < ApplicationController
       @order = Order.find(params[:id])
     end
     def order_params
-      params.require(:order).permit(:party_size, :dietary_preferences, :address, :emergency_date, :reason_for_event)
+      params.require(:order).permit(:name, :party_size, :dietary_preferences, :address, :emergency_date, :reason_for_event)
     end
     def check_login
       unless current_user

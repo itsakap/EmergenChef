@@ -1,7 +1,7 @@
 <%= form_for(@order) do |o| %>
   <% if @order.errors.any? %>
     <div id = "error_explanation">
-      <h2><%= pluralize(@order.errors.count,"error") %> prohibited this order from being saved</h2>
+      <h4>Your order <%= pluralize(@order.errors.count,"error") %> prohibited this order from being saved</h4>
       <ul>
         <% @order.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -9,9 +9,31 @@
       </ul>
     </div>
   <% end %>
+  <!-- need fields for emergency date, address, and NAME OF THE ORDER??? -->
   <div class = "field form-group clearfix">
-    <div class = "col-md-12"><%= o.label :dietary_preferences %></div>
+    <div class = "col-md-12"><%= o.label :post, "Name of Order*" %></div>
+    <div class = "col-md-12"><%= o.text_field :name, class: "form-control" %></div>
+  </div>
+  <div class = "field form-group clearfix">
+    <div class = "col-md-12"><%= o.label :post, "Date (when are we cooking?)" %></div>
+    <div class = "col-md-12"><%= o.date_select :emergency_date, {}, {:class=> "col-md-4 form-control"}%></div>
+  </div>
+  <div class = "field form-group clearfix">
+    <div class = "col-md-12"><%= o.label :post, "Address (where are we cooking?)" %></div>
+    <div class = "col-md-12"><%= o.text_area :address, class: "form-control"%></div>
+  </div>
+
+  <div class = "field form-group clearfix">
+    <div class = "col-md-12"><%= o.label :post, "Does your Team have any Dietary Preferences?" %></div>
     <div class = "col-md-12"><%= o.text_field :dietary_preferences, class: "form-control" %></div>
+    <div class = "col-md-6 col-md-offset-6">
+      <div class = "checkbox">
+        <label>
+          <%= check_box current_user, current_user.profile.dietary_preferences, {}, "works","" %>
+          Use info from profile
+        </label>
+      </div>
+    </div>
   </div>
   <div class = "form-group clearfix">
     <div class = "col-md-12"><%= o.label :party_size %></div>

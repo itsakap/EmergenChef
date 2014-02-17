@@ -15,6 +15,13 @@ GIT
       tzinfo (>= 0.3.37)
 
 GIT
+  remote: git://github.com/netguru/mongoid-sadstory.git
+  revision: 17ae7681708226196e5308bbb5a4bf3a76a427fa
+  specs:
+    mongoid-sadstory (0.0.1)
+      mongoid (~> 4.0.0.alpha1)
+
+GIT
   remote: git://github.com/twbs/bootstrap-sass.git
   revision: 4f8c3465477a2e27a7197ac9493817d4c101b867
   specs:
@@ -209,6 +216,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   mongoid!
+  mongoid-sadstory!
   rack-livereload
   rails (= 4.0.2)
   rails_12factor

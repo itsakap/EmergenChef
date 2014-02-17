@@ -8,6 +8,11 @@ $navbar-padding-vertical:40px;
   background-image:url(logo.png);
   background-size:cover;
 }
-
+ul{
+ li{
+   list-style: none;
+ }
+ padding:0;
+}
 .row{margin:0;
  }

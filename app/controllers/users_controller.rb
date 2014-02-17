@@ -3,6 +3,8 @@ class UsersController < ApplicationController
     @users = User.all
     if current_user
       redirect_to current_user
+    else
+      redirect_to new_auth_path
     end
   end
   def new
@@ -21,7 +23,7 @@ class UsersController < ApplicationController
       flash[:notice] = "A confirmation e-mail has been sent to your account."
     else
       redirect_to new_user_path
-      flash[:notice] = @user.save ? "Please confirm your password properly." : "Username already exists"
+      flash[:error] = @user.save ? "Please confirm your password properly." : "Username already exists."
     end
   end
 
@@ -30,15 +32,17 @@ class UsersController < ApplicationController
     if @user.verification_token == params[:verification_token]
       @user.update(:is_verified? => true, :verification_token => nil)
       redirect_to new_auth_path
-      flash[:notice] = 'you are so cool'
+      flash[:notice] = 'Account successfully verified!'
     else
-      flash[:notice] = "fuck off you evil hacker fart"
+      flash[:error] = "Oops!  Something went wrong!  Please try again."
       redirect_to root_path
     end
   end
   def show
     unless current_user
       redirect_to new_auth_path
+    else
+      @orders = current_user.orders
     end
     unless current_user.profile
       Profile.create(user: current_user)
@@ -49,8 +53,8 @@ class UsersController < ApplicationController
     unless current_user
       redirect_to new_auth_path
     else
-      if current_user.update(params.require(:user).permit(:email, profile_attributes: [:phone_number, :startup_name]))
-
+      if current_user.update(params.require(:user).permit(:email, profile_attributes: [:phone_number, :address,:startup_name,:dietary_preferences,:favorite_foods,:credit_card_number,:expiration_date,:cvv,:how_frequently_your_team_pulls_all_nighters,:party_size]))
+        flash[:notice] = "Successfully updated Profile"
         redirect_to current_user
       end
     end

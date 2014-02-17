@@ -56,7 +56,8 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Meet our Chefs <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Chez Adam</a></li>
+                <li><%= link_to 'Chez Adam', adam_path %></li>
+                <li class = "divider"></li>
                 <li><a href="#">Chez Chantilly</a></li>
                 <li><a href="#">Chez Rachel</a></li>
                 <li><a href="#">Chez Tiffany</a></li>
@@ -86,7 +87,7 @@
 
                   <!-- Form Partial for Login -->
                   <div>
-                    <%= form_for :user, {url:'/auths', method:'post'} do |u| %>
+                    <%= form_for :user, {url:'/auths', method: :post} do |u| %>
                       <%= u.text_field :username, class: "form-control form-group", :placeholder => "Username" %>
                       <%= u.password_field :password,class: "form-control form-group", :placeholder => "Password" %>
                       <div class = 'text-center'><%= u.submit "Sign In", class: " btn btn-primary" %>

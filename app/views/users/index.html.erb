@@ -1,6 +1,14 @@
 <h1>This is the current user</h1>
 <%= current_user.username if current_user%>
-<p id = "notice"><%= notice %></p>
+<% if notice %>
+<div class = 'col-md-5'></div>
+  <div id = "error" class = "col-md-2 alert alert-dismissable alert-success">
+    <button type = "button" class = "close" data-dismiss = "alert">x
+    </button>
+    <strong><%= notice %></strong>
+  </div>
+<% end %>
+  <div class = 'col-md-5'></div>
 <h1>These are all of the users</h1>
 <% @users.each do |u| %>
   <%= u.username %>

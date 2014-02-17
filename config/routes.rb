@@ -5,6 +5,7 @@ EmergenChef::Application.routes.draw do
   post 'orders' => 'orders#create'
   update method
 =end
+  get "about/adam" => "statics#adam", :as => :adam
   get "orders" => "orders#index", :as => :orders
   get "orders/new" => 'orders#new', :as => :new_order
   resources :orders, only:[:create, :destroy, :edit, :update]

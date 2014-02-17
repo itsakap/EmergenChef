@@ -2,9 +2,10 @@
 <ul>
 
   <% @orders.each do |o| %>
+  <!--style this a little bit better-->
     <li>
-      <%= o.dietary_preferences %>
-      <%= link_to 'edit', edit_order_path(o) %>
+      <%= o.name %> |
+      <%= link_to 'edit this order', edit_order_path(o) %> |
       <%= link_to 'delete', o, {method: :delete} %>
     </li>
   <% end %>
