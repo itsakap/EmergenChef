@@ -40,7 +40,7 @@ class OrdersController < ApplicationController
   def alert
     if current_user
       @order = Order.find(params[:id])
-      Confirmer.delay.emergency(@order)
+      Confirmer.delay.emergency(@order.id, current_user.id)
       redirect_to current_user
       flash[:notice] = "Email on route!"
     else

@@ -5,9 +5,9 @@ class Confirmer < ActionMailer::Base
     mail(to: @account.email_address, subject: "Welcome!")
   end
 
-  def emergency(order_id)
+  def emergency(order_id, user_id)
     @ord = Order.find(order_id)
-    @account = current_user
+    @account = User.find(user_id)
     
     mail(to: "emergenchef@gmail.com", subject: "Emergency for #{@account.username}")
   end
