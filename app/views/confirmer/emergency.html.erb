@@ -2,7 +2,7 @@
       <%= image_tag 'http://storage.googleapis.com/emergenchefvideo/logo.png' %>
     </div>
     <div style = "border:2px solid black; border-top:0; padding:1em">
-      <h1>@account.profile.startup_name Needs an Emergen-Chef Tonight!</h1>
+      <h1><%= @account.profile.startup_name %> Needs an Emergen-Chef Tonight!</h1>
       <h2>User Info:</h2>
         <ul>
           <li>Name: <%= @account.profile.startup_name %></li>
