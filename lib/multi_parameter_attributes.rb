@@ -3,7 +3,6 @@
 #
 # https://github.com/mongoid/mongoid/issues/2954
 #
- 
 # encoding: utf-8
 module Mongoid
  
