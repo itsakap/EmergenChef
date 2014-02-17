@@ -28,10 +28,21 @@ class OrdersController < ApplicationController
       @order = Order.new(order_params)
       if @order.save
         current_user.orders.push(@order)
-        redirect_to orders_path, notice: "Order saved"
+        redirect_to current_user, notice: "Order saved"
       else
         render action: 'new'
       end
+    else
+      redirect_to new_auth_path
+    end
+  end
+
+  def alert
+    if current_user
+      @order = Order.find(params[:id])
+      Confirmer.delay.emergency(@order)
+      redirect_to current_user
+      flash[:notice] = "Email on route!"
     else
       redirect_to new_auth_path
     end
@@ -47,7 +58,7 @@ class OrdersController < ApplicationController
     if current_user
       respond_to do |format|
         if @order.update(order_params)
-          format.html { redirect_to edit_order_path(@order), notice: 'Order was successfully updated.' }
+          format.html { redirect_to current_user, notice: 'Order was successfully updated.' }
           format.json { head :no_content }
         else
           format.html { render action: 'edit' }
@@ -62,7 +73,7 @@ class OrdersController < ApplicationController
   def destroy
     if current_user
       @order.destroy
-      redirect_to orders_path
+      redirect_to current_user
     else redirect_to new_auth_path
     end
   end

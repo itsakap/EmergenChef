@@ -4,13 +4,13 @@ ruby '2.0.0'
 gem 'rails', '4.0.2'
 
 gem 'mongoid', github:'mongoid/mongoid'
+gem 'mongoid-sadstory', github:'netguru/mongoid-sadstory'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass', github:'twbs/bootstrap-sass'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 gem 'sinatra', '>= 1.3.0', :require => nil
-gem 'mongoid-sadstory', github:'netguru/mongoid-sadstory'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 

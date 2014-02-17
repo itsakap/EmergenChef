@@ -12,10 +12,10 @@
 
 
 <div class = "well col-md-4 col-md-offset-1">
-  <h2>Orders</h2>
+  <h2>Orders <small>| <%= link_to 'New Order', new_order_path %></small></h2>
   <ul>
     <% @orders.each do |o| %>
-     <li><%= o.name %> | <%= link_to "Edit", edit_order_path(o) %></li>
+     <li><%= o.name %> | <%= link_to "Edit", edit_order_path(o) %> | <%= link_to 'delete', o, {method: :delete} %> | <%= button_to "I need this order NOW!", o, {method: :post, class: "btn btn-danger"} %></li>
     <% end %>
   </ul>
 </div>
@@ -78,7 +78,7 @@
           <div class = "col-md-4"><%= p.number_field :cvv, class: "form-control" %>
           </div>
         </div>
-        <div class = "form-group clearfix"><%= f.submit class: "col-md-4 col-md-offset-4 btn btn-primary" %></div>
+        <div class = "form-group clearfix"><%= f.submit "Update Profile",class: "col-md-4 col-md-offset-4 btn btn-primary" %></div>
 
 
       <% end %>

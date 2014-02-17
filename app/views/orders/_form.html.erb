@@ -16,7 +16,7 @@
   </div>
   <div class = "field form-group clearfix">
     <div class = "col-md-12"><%= o.label :post, "Date (when are we cooking?)" %></div>
-    <div class = "col-md-12"><%= o.date_select :emergency_date, {}, {:class=> "col-md-4 form-control"}%></div>
+    <div class = "col-md-12"><%= o.date_select :emergency_date, {:order => [:day, :month, :year]}, {:class=> "col-md-4 form-control"}%></div>
   </div>
   <div class = "field form-group clearfix">
     <div class = "col-md-12"><%= o.label :post, "Address (where are we cooking?)" %></div>

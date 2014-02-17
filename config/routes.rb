@@ -5,12 +5,14 @@ EmergenChef::Application.routes.draw do
   post 'orders' => 'orders#create'
   update method
 =end
+
   get "about/adam" => "statics#adam", :as => :adam
   get "orders" => "orders#index", :as => :orders
   get "orders/new" => 'orders#new', :as => :new_order
   resources :orders, only:[:create, :destroy, :edit, :update]
   get "orders/edit"
   get 'orders/:id' => 'orders#show', :as => :show_order
+  post 'orders/:id' => 'orders#alert', :as => :send_order_email
   root 'users#welcome'
   get 'users/:id' => 'users#show', :as => :user
   patch 'users/:id' => 'users#update' 

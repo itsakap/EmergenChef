@@ -2,9 +2,23 @@
       <%= image_tag 'http://storage.googleapis.com/emergenchefvideo/logo.png' %>
     </div>
     <div style = "border:2px solid black; border-top:0; padding:1em">
+      <h1>@account.profile.startup_name Needs an Emergen-Chef Tonight!</h1>
       <h2>User Info:</h2>
-
+        <ul>
+          <li>Name: @account.profile.startup_name</li>
+          <li>Email: @account.email_address</li>
+          <li>User Address: @account.profile.address</li>
+          <li>Phone Number: @account.profile.phone_number</li>
+          <li></li>
+          <li>Frequency of All Nighters: @account.how_frequently_your_team_pulls_all_nighters</li>
+          <li>Favorite Foods: @account.profile.favorite_foods</li>
+        </ul>
       <h2>Order Info:</h2>
-
+        <ul>
+          <li>Name: @ord.name</li>
+          <li>Order Address: @ord.address</li>
+          <li>Order Dietary Preferences: @ord.dietary_preferences</li>
+          <li>Reason for Event: @ord.reason_for_event</li>
+        </ul>
      </div>
 

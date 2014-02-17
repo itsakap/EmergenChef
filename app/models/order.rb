@@ -1,6 +1,5 @@
 class Order
   include Mongoid::Document
-  include Mongoid::MultiParameterAttributes
   field :name, type: String
   field :party_size, type: Integer
   field :dietary_preferences, type: String
