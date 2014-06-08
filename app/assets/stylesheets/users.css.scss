@@ -3,8 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com
 @import 'bootstrap';
 #video-nest{
-  width:560px;
-  height:600px;
+  width:280px;
+  height:300px;
   margin:0 auto 2em;
   overflow-x:hidden;
   text-align: center;
@@ -14,15 +14,15 @@
     z-index:-1;
     position:absolute;
     left:15px;
-    top:90px;
+    top:45px;
   }
   #tv-nest{
-    width: 560px;
-    height:600px;
-    background:url(TV-Frame.png);
+    width: 280px;
+    height:300px;
+    background:url(TV-Frame-smaller.png);
     position:absolute;
     background-repeat:no-repeat;
-    background-position:-220px;
+    background-position:-110px;
     top:0;
     left:0;
   }
@@ -39,10 +39,12 @@
   }
 
 }
-  .panel-danger{
-    left:2em;
-  }
-  .panel-info{
-    right:2em;
-  }
-
+.panel-danger{
+  left:2em;
+}
+.panel-info{
+  right:2em;
+}
+ol{
+  font-size:2em;
+}

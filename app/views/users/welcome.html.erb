@@ -1,19 +1,27 @@
 <% if notice %>
-<div class = 'col-md-5'></div>
+  <div class = 'col-md-5'></div>
   <div id = "error" class = "col-md-2 alert alert-dismissable alert-success">
     <button type = "button" class = "close" data-dismiss = "alert">x
     </button>
     <strong><%= notice %></strong>
   </div>
-  <div class = 'col-md-5'></div>
-  <% end %>
+  <div class = 'col-md-5'>
+  </div>
+<% end %>
+
 <div id = "video-nest">
-  <%= video_tag "http://commondatastorage.googleapis.com/emergenchefvideo%2FEmergenChef720.mp4", autoplay: true, loop: true, muted: true, size: "540x350" %>
-
+  <%= video_tag "http://commondatastorage.googleapis.com/emergenchefvideo%2FEmergenChef720.mp4", autoplay: true, loop: true, muted: true, size: "270x175" %>
   <div id = "tv-nest"></div>
-
 </div>
-<div class = "panel panel-danger">
+<!--<div class = "jumbotron">
+  <h2>It's as easy as 1-2-3!</h2>
+  <ol>
+    <li>Our chefs visit your team at an hour you designate</li>
+    <li>They bring with them a variety of plug-in appliances to turn any space into your very own private kitchen</li>
+    <li>Your team eats food they like!</li>
+  </ol>
+</div>-->
+<!--<div class = "panel panel-danger">
   <div class = "panel-heading">
     <h3 class = "panel-title">Pulling another All-Nighter?</h3>
   </div>
@@ -27,11 +35,6 @@
     <h3 class = "panel-title">How does it work?</h3>
   </div>
   <div class = "panel-body">
-    <h4>It's as easy as 1-2-3!</h4>
-    <ol>
-      <li>Our chefs visit your team at an hour you designate</li>
-      <li>They bring with them a variety of plug-in appliances to turn any space into your very own private kitchen</li>
-      <li>Your team eats food they like!</li>
-    </ol>
+
   </div>
-</div>
+</div>-->
