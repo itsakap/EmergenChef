@@ -1,7 +1,7 @@
 
 $navbar-default-bg: #1d46aa;
 $navbar-height:180px;
-$navbar-padding-vertical:40px;
+$navbar-padding-vertical:20px;
 .navbar-brand{
   width:390px;
   height:180px;
@@ -13,7 +13,7 @@ $navbar-padding-vertical:40px;
   clear:both;
 }
 .footer{
-  padding:2em;
+  // padding:2em;
 }
 ul{
  li{
@@ -25,4 +25,24 @@ ul{
  }
 .navbar{
   margin-bottom:0
+}
+.corner-dock{
+  position:absolute;
+  bottom:0;
+  right:0;
+}
+
+@media only screen and (min-width:768px){
+  .navbar-right{
+    position:absolute;
+    right:0;
+  }
+  #hide-xxs{
+    display:none;
+  }
+}
+@media only screen and (max-width:649px){
+  #hide-xxs{
+    display:none;
+  }
 }
