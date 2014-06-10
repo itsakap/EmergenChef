@@ -17,7 +17,7 @@ EmergenChef::Application.routes.draw do
   get 'users/:id' => 'users#show', :as => :user
   patch 'users/:id' => 'users#update' 
   get 'users/:id/verify/:verification_token' => 'users#verify', :as => :verify_user
-  get 'users' => 'users#index', :as => :users
+  #get 'users' => 'users#index', :as => :users
   post 'users' => 'users#create'
   get 'sign_up' => 'users#new', :as => :new_user
   #resources :users, only:[:index, :new, :create]

@@ -1,0 +1,71 @@
+<fieldset>
+    <legend>My Profile</legend>
+    <%= form_for current_user do |f| %>
+      <%= f.fields_for :profile do |p| %>
+        <div class = "form-group clearfix">
+          <div class = "col-md-12"><%= p.label :post, "Name of Your Group" %>
+          </div>
+          <div class = "col-md-12"><%= p.text_field :startup_name, class: "form-control" %>
+          </div>
+        </div>
+        <div class = "form-group clearfix">
+          <div class = "col-md-12"><%= p.label :post, "Address" %>
+          </div>
+          <div class = "col-md-12"><%= p.text_area :address, class: "form-control" %>
+          </div>
+        </div>
+        <div class = "form-group clearfix">
+          <div class = "col-md-12"><%= p.label :post, "Phone Number" %>
+          </div>
+          <div class = "col-md-12"><%= p.text_field :phone_number, class: "form-control" %>
+          </div>
+        </div>
+        <div class = "form-group clearfix">
+          <div class = "col-md-12"><%= p.label :post, "How Frequently Does Your Team Pull All-Nighters?" %>
+          </div>
+          <div class = "col-md-12"><%= p.text_field :how_frequently_your_team_pulls_all_nighters, class: "form-control" %>
+          </div>
+        </div>
+        <div class = "form-group clearfix">
+          <div class = "col-md-12"><%= p.label :post, "Team Size" %>
+          </div>
+          <div class = "col-md-12"><%= p.number_field :party_size, class: "form-control" %>
+          </div>
+        </div>
+        <div class = "form-group clearfix">
+          <div class = "col-md-12"><%= p.label :post, "Dietary Preferences" %>
+          </div>
+          <div class = "col-md-12"><%= p.text_field :dietary_preferences, class: "form-control" %>
+          </div>
+        </div>
+        <div class = "form-group clearfix">
+          <div class = "col-md-12"><%= p.label :post, "Favorite Foods" %>
+          </div>
+          <div class = "col-md-12"><%= p.text_field :favorite_foods, class: "form-control" %>
+          </div>
+        </div>
+        <div class = "form-group clearfix">
+          <div class = "col-md-12"><%= p.label :post, "Credit Card Number" %>
+          </div>
+          <div class = "col-md-12"><%= p.text_field :credit_card_number, class: "form-control" %>
+          </div>
+        </div>
+        <div class = "form-group clearfix">
+          <div class = "col-md-12"><%= p.label :post, "Expiration Date" %>
+          </div>
+          <div class = "col-md-12"><%= p.text_field :expiration_date, class: "form-control" %>
+          </div>
+        </div>
+        <div class = "form-group clearfix">
+          <div class = "col-md-12"><%= p.label :post, "CVV" %>
+          </div>
+          <div class = "col-md-4"><%= p.number_field :cvv, class: "form-control" %>
+          </div>
+        </div>
+        <div class = "form-group clearfix"><%= f.submit "Update Profile",class: "col-md-4 col-md-offset-4 btn btn-primary" %></div>
+
+
+      <% end %>
+    <% end %>
+
+  </fieldset>

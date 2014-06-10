@@ -16,14 +16,17 @@
   <div class = 'col-md-5'></div>
 <% end %>
 
+<div class="row">
 <div class = "well horizontal-form col-md-4 col-md-offset-4">
-<fieldset>
-  <legend> Sign In </legend>
-<div>
-<%= form_for @user, {url:'/auths', method:'post'} do |u| %>
-  <%= u.text_field :username, class: "form-control form-group", :placeholder => "Username" %>
-  <%= u.password_field :password,class: "form-control form-group", :placeholder => "Password" %>
-  <div class = 'text-center'><%= u.submit "Sign In", class: " btn btn-primary" %></div>
-<% end %></div>
-</fieldset>
+  <fieldset>
+    <legend> Sign In </legend>
+    <div>
+      <%= form_for @user, {url:'/auths', method:'post'} do |u| %>
+        <%= u.text_field :username, class: "form-control form-group", :placeholder => "Username" %>
+        <%= u.password_field :password,class: "form-control form-group", :placeholder => "Password" %>
+        <div class = 'text-center'><%= u.submit "Sign In", class: " btn btn-primary" %></div>
+      <% end %>
+  </fieldset>
+</div>
+</div>
 </div>

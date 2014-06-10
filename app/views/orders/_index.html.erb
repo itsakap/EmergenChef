@@ -1,0 +1,6 @@
+<h2>Orders <small>| <%= link_to 'New Order', new_order_path %></small></h2>
+<ul>
+  <% @orders.each do |o| %>
+   <li><%= o.name %> | <%= link_to "Edit", edit_order_path(o) %> | <%= link_to 'delete', o, {method: :delete} %> | <%= button_to "I need this order NOW!", o, {method: :post, class: "btn btn-danger"} %></li>
+  <% end %>
+</ul>

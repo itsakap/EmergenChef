@@ -25,7 +25,7 @@
         </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div id="hide-xxs" class = "text-right col-md-3 pull-right corner-dock">
+    <div id="hide-xxs" class = "text-right col-md-4 pull-right corner-dock">
       <% if current_user %>
           Logged in as <%= current_user.username %>
           &nbsp;|&nbsp;
@@ -77,10 +77,10 @@
               </ul>
             </li>
           </ul>
-    <div class = "text-right col-md-3 pull-right corner-dock">
+    <div class = "text-right col-md-4 pull-right corner-dock">
       <% if current_user %>
           Logged in as <%= current_user.username %>
-          &nbsp;|&nbsp;
+          &nbsp;|&nbsp;<%= link_to "My Orders", current_user %>&nbsp;|&nbsp;
           <%= link_to 'Sign Out', auths_path, {method: :delete} %>
       <% else %>
         <a data-toggle = "modal" data-target = "#signIn">Sign In</a>
@@ -101,12 +101,7 @@
 
               <!-- Form Partial for Login -->
               <div>
-                <%= form_for :user, {url:'/auths', method: :post} do |u| %>
-                  <%= u.text_field :username, class: "form-control form-group", :placeholder => "Username" %>
-                  <%= u.password_field :password,class: "form-control form-group", :placeholder => "Password" %>
-                  <div class = 'text-center'><%= u.submit "Sign In", class: " btn btn-primary" %>
-                  </div>
-                <% end %>
+                <%= render :partial => 'layouts/sign_in.html.erb' %>
               </div>
 
               <!-- Sign-up link (redirects to users/new)-->
@@ -125,31 +120,11 @@
 
               <!-- Form Partial for Login -->
               <div>
-                <%= form_for(User.new) do |f| %>
-
-                  <div class = "field form-group clearfix">
-                   <div class = "col-md-12 text-left"> <%= f.label :post, "Username" %></div>
-                    <div class = "col-md-12"><%= f.text_field :username, class: "form-control"%></div>
-                  </div>
-                  <div class = "form-group field clearfix">
-                    <div class = "text-left col-md-12"><%= f.label :post, "E-Mail Address", class: "control-label" %></div>
-                    <div class = "col-md-12"> <%= f.email_field :email_address, class: "form-control" %></div>
-                  </div>
-                  <div class = "field form-group clearfix">
-                    <div class = "text-left col-md-12"><%= f.label "Password", class: "control-label" %></div>
-                    <div class = "col-md-12"><%= f.password_field :password, class: "form-control" %></div>
-                  </div>
-                  <div class = "field form-group clearfix">
-                    <div class = "text-left col-md-12"><%= f.label :post, "Confirm Password", class: "control-label" %></div>
-                    <div class = "col-md-12"><%= f.password_field :password_confirmation, class: "form-control" %></div>
-                  </div>
-
-                  <div class = "form-group clearfix"><%= f.submit class: "col-md-4 col-md-offset-4 btn btn-primary" %></div>
-                <% end %>
+                <%= render partial:"layouts/sign_up.html.erb" %>
               </div>
 
               <!-- Sign-up link (redirects to users/new)-->
-              <%= link_to "Sign in", new_auth_path %>
+              <%= link_to "Sign In", new_auth_path %>
             </div>
           </div>
         </div>
