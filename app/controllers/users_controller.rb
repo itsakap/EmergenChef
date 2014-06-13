@@ -1,11 +1,7 @@
 class UsersController < ApplicationController
+  before_action :check_login, except: [:show]
   def index
-    @users = User.all
-    if current_user
-      redirect_to current_user
-    else
-      redirect_to new_auth_path
-    end
+    #this might become a main page for users to see all users
   end
   def new
     unless current_user
@@ -64,5 +60,9 @@ private
   def user_params
     params.require(:user).permit(:username, :email_address, :salt, :hashed_password)
   end
-
+  def check_login
+    if current_user
+      redirect_to current_user
+    end
+  end
 end

@@ -41,8 +41,6 @@ class OrdersController < ApplicationController
         format.html { render action: 'edit' }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
-    else
-      redirect_to new_auth_path
     end
   end
 

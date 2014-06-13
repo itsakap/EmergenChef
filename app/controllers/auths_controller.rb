@@ -6,7 +6,7 @@ class AuthsController < ApplicationController
       @user = User.new
     end
   end
-  
+  #this is dry enough
   def create
     user = User.where(username: params[:user][:username])
     if user.count > 0
