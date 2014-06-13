@@ -7,20 +7,16 @@ EmergenChef::Application.routes.draw do
 =end
 
   get "about/adam" => "statics#adam", :as => :adam
-  get "orders" => "orders#index", :as => :orders
-  get "orders/new" => 'orders#new', :as => :new_order
+  get "orders/new" => 'orders#new', :as => :new_order #this can stay
   resources :orders, only:[:create, :destroy, :edit, :update]
-  get "orders/edit"
-  get 'orders/:id' => 'orders#show', :as => :show_order
-  post 'orders/:id' => 'orders#alert', :as => :send_order_email
-  root 'users#welcome'
-  get 'users/:id' => 'users#show', :as => :user
-  patch 'users/:id' => 'users#update' 
+  get 'orders/:id' => 'orders#show', :as => :show_order #this can stay
+  post 'orders/:id' => 'orders#alert', :as => :send_order_email #stay
+  root 'users#welcome' #stay
+  get 'users/:id' => 'users#show', :as => :user #stay
+  patch 'users/:id' => 'users#update'  #stay
   get 'users/:id/verify/:verification_token' => 'users#verify', :as => :verify_user
-  #get 'users' => 'users#index', :as => :users
   post 'users' => 'users#create'
   get 'sign_up' => 'users#new', :as => :new_user
-  #resources :users, only:[:index, :new, :create]
   delete 'sign_out' => 'auths#destroy', :as => :auths
   get 'sign_in' => 'auths#new', :as => :new_auth
   resources :auths, only:[ :create]

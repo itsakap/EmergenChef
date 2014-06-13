@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   before_action :check_login, except: [:show]
-  def index
+  #def index
     #this might become a main page for users to see all users
-  end
+  #end
   def new
     unless current_user
       @user = User.new
