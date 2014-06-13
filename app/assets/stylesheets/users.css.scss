@@ -48,3 +48,8 @@
 ol{
   font-size:2em;
 }
+@media only screen and (min-width:768px){
+  .well.col-md-4.col-md-offset-4{
+    margin-top:20px;
+  }
+}

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :check_login, except: [:show]
+  before_action :check_login, except: [:show, :welcome]
   #def index
     #this might become a main page for users to see all users
   #end

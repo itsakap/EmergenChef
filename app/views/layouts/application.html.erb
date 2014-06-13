@@ -95,17 +95,14 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-body">
-
-              <!-- Modal header/message -->
-              <h3>Sign In</h3>
-
+     
               <!-- Form Partial for Login -->
-              <div>
-                <%= render :partial => 'layouts/sign_in.html.erb' %>
-              </div>
+              
+              <%= render :partial => 'layouts/sign_in.html.erb' %>
+              
 
               <!-- Sign-up link (redirects to users/new)-->
-              Don't have an account yet? <%= link_to "Sign up!", new_user_path %>
+              
             </div>
           </div>
         </div>
