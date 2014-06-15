@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   before_action :check_login, except: [:show, :welcome]
-  #def index
-    #this might become a main page for users to see all users
-  #end
+  before_action :login_required, only: [:update, :show]
+  def index
+    # this might become a main page for users to see all users
+  end
   def new
     unless current_user
       @user = User.new
@@ -35,12 +36,8 @@ class UsersController < ApplicationController
     end
   end
   def show
-    unless current_user
-      redirect_to new_auth_path
-    else
       @orders = current_user.orders
-    end
-    unless current_user.profile
+    unless current_user.profile #profile does not exist yet
       Profile.create(user: current_user)
 
     end
@@ -63,6 +60,11 @@ private
   def check_login
     if current_user
       redirect_to current_user
+    end
+  end
+  def login_required
+    unless current_user
+      redirect_to new_auth_path
     end
   end
 end

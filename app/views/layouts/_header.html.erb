@@ -1,0 +1,90 @@
+<header class = "row">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/"></a>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div id="hide-xxs" class = "text-right col-md-4 pull-right corner-dock">
+        <% if current_user %>
+            Logged in as <%= current_user.username %>
+            &nbsp;|&nbsp;
+            <%= link_to 'Sign Out', auths_path, {method: :delete} %>
+        <% else %>
+          <a data-toggle = "modal" data-target = "#signIn">Sign In</a>
+          or
+          <a data-toggle = "modal" data-target = "#signUp">Sign Up</a>
+          &mdash; you're missing out
+        <% end %>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href = "#">About</a></li>
+          <li><a href = "#">Locations</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Meet our Chefs <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to 'Chez Adam', adam_path %></li>
+              <li class = "divider"></li>
+              <li><a href="#">Chez Chantilly</a></li>
+              <li><a href="#">Chez Eddie</a></li>
+              <li><a href="#">Chez Tiffany</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class = "text-right col-md-4 pull-right corner-dock">
+          <% if current_user %>
+              Logged in as <%= current_user.username %>
+              &nbsp;|&nbsp;<%= link_to "My Orders", current_user %>&nbsp;|&nbsp; <!-- show action on current_user --> 
+              <%= link_to 'Sign Out', auths_path, {method: :delete} %>
+          <% else %>
+            <a data-toggle = "modal" data-target = "#signIn">Sign In</a>
+            or
+            <a data-toggle = "modal" data-target = "#signUp">Sign Up</a>
+            &mdash; you're missing out
+
+          <% end %>
+          
+        </div>
+        <div class="modal fade" id="signIn" tabindex="-1" role="dialog" aria-labelledby="signInLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                <!-- Form Partial for Login -->
+                <%= render :partial => 'layouts/sign_in.html.erb' %>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="signUpLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+
+                <!-- Modal header/message -->
+                <h3>Sign Up!</h3>
+
+                <!-- Form Partial for Login -->
+                <div>
+                  <%= render partial:"layouts/sign_up.html.erb" %>
+                </div>
+
+                <!-- Sign-up link (redirects to users/new)-->
+                <%= link_to "Sign In", new_auth_path %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+</header>
