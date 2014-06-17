@@ -3,7 +3,7 @@
   <% @orders.each do |o| %>
    <li><%= link_to "#{o.name}", o %>
      <% if "#{current_user.id}" == "#{id}" %>
-     | <%= link_to "Edit", edit_order_path(o) %> | <%= link_to 'delete', o, {method: :delete} %> | <%= button_to "I need this order NOW!", o, {method: :post, class: "btn btn-danger"} %>
+     | <%= link_to "Edit", edit_order_path(o) %> | <%= link_to 'delete', o, {method: :delete} %> | <%= button_to "Tonight", o, {method: :post, class: "btn btn-danger"} %>
      <% end %>
    </li>
   <% end %>
