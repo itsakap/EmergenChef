@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
-  before_action :check_login, except: [:show, :welcome]
-  before_action :login_required, only: [:update, :show]
+  before_action :logout_required, except: [:show, :welcome, :index] #only new, create, verify, update
+  before_action :login_required, only: [:update, :show, :index]
+  before_action :admin_required, only: [:index]
+  before_action :user_match_required, only:[:show]
   def index
-    # this might become a main page for users to see all users
+=begin
+
+=end
   end
   def new
     unless current_user
@@ -15,7 +19,7 @@ class UsersController < ApplicationController
     @user = User.new(creation)
     if creation[:password] == creation[:password_confirmation] && @user.save
       
-      Confirmer.delay.welcome(@user.id)
+      Confirmer.delay.welcome(@user.id) #
       redirect_to root_path
       flash[:notice] = "A confirmation e-mail has been sent to your account."
     else
@@ -57,7 +61,7 @@ private
   def user_params
     params.require(:user).permit(:username, :email_address, :salt, :hashed_password)
   end
-  def check_login
+  def logout_required
     if current_user
       redirect_to current_user
     end
@@ -66,5 +70,15 @@ private
     unless current_user
       redirect_to new_auth_path
     end
+  end
+  def admin_required
+    # unless current_user.id == admin.id
+    #   redirect_to root_path
+    # end
+  end
+  def user_match_required
+    # unless current_user.id == params[:id] || current_user.id == admin.id
+    #   redirect_to current_user
+    # end
   end
 end

@@ -33,7 +33,10 @@ ul{
   background-color:#ad1d28;
   border-top-left-radius: 5px;
 }
-
+a {
+  //just to make sure...
+  cursor: pointer;
+}
 @media only screen and (min-width:768px){
   .navbar-right{
     position:absolute;
