@@ -1,4 +1,5 @@
 <% if flash[:error] %>
+<div class='row'>
   <div class = 'col-md-5'></div>
   <div id = "error" class = "col-md-2 alert alert-dismissable alert-warning">
     <button type = "button" class = "close" data-dismiss = "alert">x
@@ -6,7 +7,9 @@
     <strong><%= flash[:error] %></strong>
   </div>
   <div class = 'col-md-5'></div>
+</div>
 <% elsif notice %>
+<div class='row'>
 <div class = 'col-md-5'></div>
   <div id = "error" class = "col-md-2 alert alert-dismissable alert-success">
     <button type = "button" class = "close" data-dismiss = "alert">x
@@ -14,6 +17,7 @@
     <strong><%= notice %></strong>
   </div>
   <div class = 'col-md-5'></div>
+</div>
 <% end %>
 
 <div class="row">
