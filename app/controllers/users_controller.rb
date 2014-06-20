@@ -4,9 +4,7 @@ class UsersController < ApplicationController
   before_action :admin_required, only: [:index]
   before_action :user_match_required, only:[:show]
   def index
-=begin
-
-=end
+    @users=User.all
   end
   def new
     unless current_user

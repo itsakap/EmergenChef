@@ -1,8 +1,10 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-  before_action :check_login
+  before_action :login_required
   def index
-    @orders = current_user.orders
+    #orders are coming from the params; page can only be accessed by admin or by matching current_user
+    @this_user = User.find(id)
+    @orders = @this_user.orders
   end
 
   def new
@@ -30,6 +32,7 @@ class OrdersController < ApplicationController
   end
 
   def edit
+    #have to change something here so it targets this user's orders and not current_user?
   end
 
   def update
@@ -56,7 +59,7 @@ class OrdersController < ApplicationController
     def order_params
       params.require(:order).permit(:name, :party_size, :dietary_preferences, :address, :emergency_date, :reason_for_event)
     end
-    def check_login
+    def login_required
       unless current_user
         redirect_to new_auth_path
       end

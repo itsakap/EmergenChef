@@ -21,10 +21,17 @@ ul{
  }
  padding:0;
 }
-.row{margin:0;
+.row{
+  margin:0;
+ }
+ .footer{
+   margin:1em 0;
+ }
+ .alert-dismissable{
+   margin: 1em 0;
  }
 .navbar{
-  margin-bottom:0
+  margin-bottom:0;
 }
 .corner-dock{
   position:absolute;
