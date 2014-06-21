@@ -98,7 +98,7 @@ DONT FORGET TO ADD CONFIGURATION FOR EMAIL!!!!!!!!!!!!!!
     port: 587,
     domain: 'gmail.com',
     user_name: 'emergenchef',
-    password: "ENV['EMERGENCHEF_EMAIL_PASSWORD']",
+    password: ENV['EMERGENCHEF_EMAIL_PASSWORD'],
     authentication: 'plain',
     enable_starttls_auto: true }
 end
