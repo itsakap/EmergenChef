@@ -70,13 +70,13 @@ private
     end
   end
   def admin_required
-    # unless current_user.id == admin.id
-    #   redirect_to root_path
-    # end
+    unless current_user.id == "53a486886536350017000000"
+      redirect_to root_path
+    end
   end
   def user_match_required
-    # unless current_user.id == params[:id] || current_user.id == admin.id
-    #   redirect_to current_user
-    # end
+    unless current_user.id == params[:id] || current_user.id == "53a486886536350017000000"
+      redirect_to current_user
+    end
   end
 end

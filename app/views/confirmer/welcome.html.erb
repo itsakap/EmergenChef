@@ -3,6 +3,6 @@
     </div>
     <div style = "border:2px solid black; border-top:0; padding:1em">
       <h1>Hello <%= @account.username %>!</h1>
-       Thank you for signing up for Emergen-Chef!  We can't wait to work with you!  Click <%= link_to 'here', "http://localhost:3000#{verify_user_path(@account.id, @account.verification_token)}", {method: :patch} %> to activate your account and get started!
+       Thank you for signing up for Emergen-Chef!  We can't wait to work with you!  Click <%= link_to 'here', "http://emergenchef.herokuapp.com#{verify_user_path(@account.id, @account.verification_token)}", {method: :patch} %> to activate your account and get started!
      </div>
 
