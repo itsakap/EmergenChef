@@ -7,13 +7,14 @@ EmergenChef::Application.routes.draw do
 =end
 
   get "about/adam" => "statics#adam", :as => :adam
-  get "orders/new" => 'orders#new', :as => :new_order #this can stay
+  get "orders/new" => 'orders#new', :as => :new_order
   resources :orders, only:[:create, :destroy, :edit, :update]
-  get 'orders/:id' => 'orders#show', :as => :show_order #this can stay
-  post 'orders/:id' => 'orders#alert', :as => :send_order_email #stay
-  root 'users#welcome' #stay
-  get 'users/:id' => 'users#show', :as => :user #stay
-  patch 'users/:id' => 'users#update'  #stay
+  get 'orders/:id' => 'orders#show', :as => :show_order
+  post 'orders/:id' => 'orders#alert', :as => :send_order_email
+  root 'users#welcome'
+  get 'usres' => 'users#index', :as => :users
+  get 'users/:id' => 'users#show', :as => :user
+  patch 'users/:id' => 'users#update'
   get 'users/:id/verify/:verification_token' => 'users#verify', :as => :verify_user
   post 'users' => 'users#create'
   get 'sign_up' => 'users#new', :as => :new_user
