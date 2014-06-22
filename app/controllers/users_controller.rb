@@ -71,12 +71,12 @@ private
     end
   end
   def admin_required
-    unless "#{current_user.id}" == "#{ENV['EMERGENCHEF_ADMIN_USER_ID']}"
+    unless is_admin?
       redirect_to root_path
     end
   end
   def user_match_required
-    unless ("#{current_user.id}" == "#{params[:id]}") || ("#{current_user.id}" == "#{ENV['EMERGENCHEF_ADMIN_USER_ID']}")
+    unless ("#{current_user.id}" == "#{params[:id]}") || (is_admin?)
       redirect_to root_path
     end
   end

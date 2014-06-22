@@ -16,7 +16,7 @@
         <% if current_user %>
             Logged in as <%= current_user.username %>
             &nbsp;|&nbsp;
-          <% if "#{current_user.id}" == "#{ENV['EMERGENCHEF_ADMIN_USER_ID']}" #if admin %>
+          <% if is_admin? %>
             <%= link_to "Admin Panel", users_path %>
             &nbsp;|&nbsp;
           <% end %>
