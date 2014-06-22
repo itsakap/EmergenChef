@@ -10,8 +10,10 @@
 <% end %>
   <div class = 'col-md-5'></div>
 <h1>These are all of the users</h1>
+<ul>
 <% @users.each do |u| %>
-  <%= u.username %>
+  <li><%= u.username %>, <%= link_to "profile", u %></li>
 <% end %>
+</ul>
 
 <%= link_to 'sign out', auths_path, {method: :delete} %>

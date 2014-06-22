@@ -70,7 +70,7 @@ private
     end
   end
   def admin_required
-    unless current_user.id == ENV['EMERGENCHEF_ADMIN_USER_ID']
+    unless "#{current_user.id}" == "#{ENV['EMERGENCHEF_ADMIN_USER_ID']}"
       redirect_to root_path
     end
   end
