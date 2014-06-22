@@ -14,8 +14,8 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div id="hide-xxs" class = "text-right col-md-4 pull-right corner-dock">
         <% if current_user %>
-            Logged in as <%= current_user.username %>
-            &nbsp;|&nbsp;
+            Logged in as <%= link_to "#{current_user.username}", current_user %>
+              &nbsp;|&nbsp;
           <% if is_admin? %>
             <%= link_to "Admin", users_path %>
             &nbsp;|&nbsp;
@@ -47,14 +47,12 @@
         </ul>
         <div class = "text-right col-md-4 pull-right corner-dock">
           <% if current_user %>
-              Logged in as <%= current_user.username %>
+              Logged in as <%= link_to "#{current_user.username}", current_user %>
               &nbsp;|&nbsp;
               <% if is_admin? %>
                 <%= link_to "Admin", users_path %>
                 &nbsp;|&nbsp;
               <% end %>
-              <%= link_to "My Orders", current_user %>
-              &nbsp;|&nbsp; <!-- show action on current_user --> 
               <%= link_to 'Sign Out', auths_path, {method: :delete} %>
           <% else %>
             <a data-toggle = "modal" data-target = "#signIn">Sign In</a>
