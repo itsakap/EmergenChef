@@ -91,7 +91,7 @@ DONT FORGET TO ADD CONFIGURATION FOR EMAIL!!!!!!!!!!!!!!
   # }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_options = {from: 'dummyemail90210@gmail.com'}
+  config.action_mailer.default_options = {from: 'emergenchef@gmail.com'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
