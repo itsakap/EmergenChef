@@ -51,6 +51,12 @@ ol{
 #users li{
   padding-left:2em;
 }
+#profil{
+  display: none;
+}
+#name{
+  float:right
+}
 @media only screen and (min-width:768px){
   .well.col-md-4.col-md-offset-4{
     margin-top:20px;

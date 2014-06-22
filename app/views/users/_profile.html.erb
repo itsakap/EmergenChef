@@ -1,5 +1,8 @@
 <fieldset>
-    <legend>My Profile</legend>
+    <legend class='clearfix'>My Profile
+        <span id='name' class="glyphicon glyphicon-arrow-down"></span>
+    </legend>
+    <div id='profil'>
     <%= form_for current_user do |f| %>
       <%= f.fields_for :profile do |p| %>
         <div class = "form-group clearfix">
@@ -67,5 +70,5 @@
 
       <% end %>
     <% end %>
-
+    </div>
   </fieldset>
