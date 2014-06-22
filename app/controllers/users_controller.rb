@@ -76,7 +76,7 @@ private
   end
   def user_match_required
     unless (current_user.id == params[:id]) || (current_user.id == ENV['EMERGENCHEF_ADMIN_USER_ID'])
-      redirect_to current_user
+      redirect_to root_path
     end
   end
 end
