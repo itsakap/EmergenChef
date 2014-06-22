@@ -20,7 +20,8 @@
             <%= link_to "Admin Panel", users_path %>
             &nbsp;|&nbsp;
           <% end %>
-            <%= link_to 'Sign Out', auths_path, {method: :delete} %>
+            <%= link_to "Sign Out",auths_path, {:method=> :delete}  %>
+              
         <% else %>
           <a data-toggle = "modal" data-target = "#signIn">Sign In</a>
           or

@@ -13,6 +13,6 @@
     <li><%= u.username %>, <%= link_to "profile", u %></li>
   <% end %>
   </ul>
-</div>
 
-<%= link_to 'sign out', auths_path, {method: :delete} %>
+  <%= link_to 'sign out', auths_path, {:method => :delete, :class=>'col-md-11 col-md-push-1'} %>
+</div>
