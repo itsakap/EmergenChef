@@ -38,9 +38,10 @@ class UsersController < ApplicationController
     end
   end
   def show
-      @orders = current_user.orders
-    unless current_user.profile #profile does not exist yet
-      Profile.create(user: current_user)
+      @this_user = User.find(params[:id])
+      @orders = @this_user.orders
+    unless @this_user.profile #profile does not exist yet
+      Profile.create(user: current_user) #current user is either admin, who gets his or her own profile upon first visit to anybody's page, or this user, who can only visit his or her own page anyway
 
     end
   end
