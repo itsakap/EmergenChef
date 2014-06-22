@@ -70,12 +70,12 @@ private
     end
   end
   def admin_required
-    unless current_user.id == "53a486886536350017000000"
+    unless current_user.id == ENV['EMERGENCHEF_ADMIN_USER_ID']
       redirect_to root_path
     end
   end
   def user_match_required
-    unless current_user.id == params[:id] || current_user.id == "53a486886536350017000000"
+    unless (current_user.id == params[:id]) || (current_user.id == ENV['EMERGENCHEF_ADMIN_USER_ID'])
       redirect_to current_user
     end
   end
