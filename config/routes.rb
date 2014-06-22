@@ -12,7 +12,7 @@ EmergenChef::Application.routes.draw do
   get 'orders/:id' => 'orders#show', :as => :show_order
   post 'orders/:id' => 'orders#alert', :as => :send_order_email
   root 'users#welcome'
-  get 'usres' => 'users#index', :as => :users
+  get 'users' => 'users#index', :as => :users
   get 'users/:id' => 'users#show', :as => :user
   patch 'users/:id' => 'users#update'
   get 'users/:id/verify/:verification_token' => 'users#verify', :as => :verify_user
