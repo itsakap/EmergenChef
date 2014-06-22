@@ -5,3 +5,18 @@
 ul li form{
   display:inline-block;
 }
+#orders{
+  .order{
+    li{
+      border-right:1px solid white;
+      padding: 0 1em;
+      display: inline-block;
+    }
+    li:last-child{
+      border-right:none;
+    }
+    .btn{
+
+    }
+  }
+}
