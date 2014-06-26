@@ -1,2 +1,14 @@
-<%= @order.name %>
-<%= @order.dietary_preferences %>
+<div class="row">
+  <h1 class= 'col-md-9 col-md-offset-3 col-sm-10 col-sm-offset-2 col-xs-11 col-xs-offset-1'>Viewing order "<%= @order.name %>"</h1>
+  <div class="col-md-6 col-md-offset-4 col-sm-8 col-sm-offset-3 col-xs-10 col-xs-offset-2">
+    <ul>
+      <li>Party Size: <%= @order.party_size %></li>
+      <li>Dietary Preferences: <%= @order.dietary_preferences %></li>
+    </ul>
+  </div>
+</div>
+<div class="row">
+  <div class='col-md-9 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1'>
+    <p><%= link_to 'Back to Dashboard', @this_user %></p>
+  </div>
+</div>

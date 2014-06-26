@@ -1,7 +1,7 @@
 <% if flash[:error] %>
 <div class='row'>
-  <div class = 'col-md-4'></div>
-  <div id = "error" class = "col-md-4 alert alert-dismissable alert-warning">
+  <div class = 'col-md-4 col-sm-4 col-xs-4'></div>
+  <div id = "error" class = "col-md-4 col-sm-4 col-xs-4 alert alert-dismissable alert-warning">
     <button type = "button" class = "close" data-dismiss = "alert">x
     </button>
     <strong><%= flash[:error] %></strong>
@@ -10,18 +10,18 @@
 </div>
 <% elsif notice %>
 <div class='row'>
-<div class = 'col-md-5'></div>
-  <div id = "error" class = "col-md-2 alert alert-dismissable alert-success">
+<div class = 'col-md-4 col-sm-4 col-xs-4'></div>
+  <div id = "error" class = "col-md-4 alert alert-dismissable alert-success">
     <button type = "button" class = "close" data-dismiss = "alert">x
     </button>
     <strong><%= notice %></strong>
   </div>
-  <div class = 'col-md-5'></div>
+  <div class = 'col-md-4'></div>
 </div>
 <% end %>
 
 <div class="row">
-<div class = "well horizontal-form col-md-4 col-md-offset-4">
+<div class = "well horizontal-form col-md-4 col-md-offset-4 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
   <fieldset>
     <legend> Sign In </legend>
     <div>

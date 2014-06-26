@@ -9,9 +9,8 @@
   <div class = 'col-md-4'></div>
 </div>
 <% end %>
-
 <div class="row">
-  <h1 class = "col-md-12">My Dashboard</h1>
+  <h1 class = "col-md-12">Dashboard for <%= @this_user.username %></h1>
 
   <div class = "well col-md-5 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
     <%= render partial:'orders/index.html.erb', locals:{id: params[:id]} %>
@@ -23,6 +22,7 @@
 
 </div>
 
+<!-- script for hide/show profile button -->
 <script>
   var isShowing=false, disp;
   $('#name').on('click',function(){

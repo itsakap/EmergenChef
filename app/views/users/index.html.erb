@@ -2,7 +2,7 @@
   <h1 class="col-md-12">This is the current user</h1>
 </div>
 <div class="row">
-  <div class="col-md-11 col-md-push-1"><%= current_user.username if current_user %></div>
+  <div class="col-md-11 col-md-offset-1 col-sm-11 col-sm-offset-1 col-xs-11 col-xs-offset-1"><%= current_user.username if current_user %></div>
 </div>
 <div class="row">
   <h1 class="col-md-12">These are all of the users</h1>
@@ -14,5 +14,5 @@
   <% end %>
   </ul>
 
-  <%= link_to 'sign out', auths_path, {:method => :delete, :class=>'col-md-11 col-md-push-1'} %>
+  <%= link_to 'sign out', auths_path, {:method => :delete, :class=>'col-md-11 col-md-offset-1 col-sm-11 col-sm-offset-1 col-xs-11 col-xs-offset-1'} %>
 </div>

@@ -1,51 +1,59 @@
-<%= form_for(@order) do |o| %>
-  <% if @order.errors.any? %>
-    <div id = "error_explanation">
-      <h4>Your order <%= pluralize(@order.errors.count,"error") %> prohibited this order from being saved</h4>
-      <ul>
-        <% @order.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+<div class="row">
+  <div class='col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1'>
+    <p><%= link_to 'Back to Dashboard', @this_user %></p>
+  </div>
+</div>
+<div class="row">
+  <div class = "well col-md-offset-2 col-md-8 col-sm-8 col-sm-offset-2 col-xs-offset-2 col-xs-8">
+    <fieldset>
+      <legend><%= params[:action] == "edit" ? "Edit #{@order.name}" : "Create an Order" %></legend>
+      <%= form_for [@this_user, @order] do |o| %>
+        <% if @order.errors.any? %>
+          <div id = "error_explanation">
+            <h4>Your order <%= pluralize(@order.errors.count,"error") %> prohibited this order from being saved</h4>
+            <ul>
+              <% @order.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <!-- need fields for emergency date, address, and NAME OF THE ORDER??? -->
-  <div class = "field form-group clearfix">
-    <div class = "col-md-12"><%= o.label :post, "Name of Order*" %></div>
-    <div class = "col-md-12"><%= o.text_field :name, class: "form-control" %></div>
-  </div>
-  <div class = "field form-group clearfix">
-    <div class = "col-md-12"><%= o.label :post, "Date (when are we cooking?)" %></div>
-    <div class = "col-md-12"><%= o.date_select :emergency_date, {:order => [:day, :month, :year]}, {:class=> "col-md-4 form-control"}%></div>
-  </div>
-  <div class = "field form-group clearfix">
-    <div class = "col-md-12"><%= o.label :post, "Address (where are we cooking?)" %></div>
-    <div class = "col-md-12"><%= o.text_area :address, class: "form-control"%></div>
-  </div>
+        <div class = "field form-group clearfix">
+          <div class = "col-md-12"><%= o.label :post, "Name of Order*" %></div>
+          <div class = "col-md-12"><%= o.text_field :name, class: "form-control" %></div>
+        </div>
+        <div class = "field form-group clearfix">
+          <div class = "col-md-12"><%= o.label :post, "Date (when are we cooking?)" %></div>
+          <div class = "col-md-12"><%= o.date_select :emergency_date, {:order => [:day, :month, :year]}, {:class=> "col-md-4 form-control"}%></div>
+        </div>
+        <div class = "field form-group clearfix">
+          <div class = "col-md-12"><%= o.label :post, "Address (where are we cooking?)" %></div>
+          <div class = "col-md-12"><%= o.text_area :address, class: "form-control"%></div>
+        </div>
 
-  <div class = "field form-group clearfix">
-    <div class = "col-md-12"><%= o.label :post, "Does your Team have any Dietary Preferences?" %></div>
-    <div class = "col-md-12"><%= o.text_field :dietary_preferences, class: "form-control" %></div>
-    <div class = "col-md-6 col-md-offset-6">
-      <div class = "checkbox">
-        <label>
-          <%= check_box current_user, current_user.profile.dietary_preferences, {}, "works","" %>
-          Use info from profile
-        </label>
-      </div>
-    </div>
-  </div>
-  <div class = "form-group clearfix">
-    <div class = "col-md-12"><%= o.label :party_size %></div>
-    <div class = "col-md-12"><%= o.number_field :party_size, class: "form-control" %></div>
-  </div>
-  <div class = "form-group clearfix">
-    <div class = "col-md-12"><%= o.label :reason_for_event %></div>
-    <div class = "col-md-12"><%= o.text_area :reason_for_event, class: "form-control" %></div>
-  </div>
-  <div class = "actions">
-    <%= o.submit class: "btn btn-primary"%>
-  </div>
+        <div class = "field form-group clearfix">
+          <div class = "col-md-12"><%= o.label :post, "Does your Team have any Dietary Preferences?" %></div>
+          <div class = "col-md-12"><%= o.text_field :dietary_preferences, class: "form-control diet" %></div>
+        </div>
+        <div class = "form-group clearfix">
+          <div class = "col-md-12"><%= o.label :party_size %></div>
+          <div class = "col-md-12"><%= o.number_field :party_size, class: "form-control" %></div>
+        </div>
+        <div class = "form-group clearfix">
+          <div class = "col-md-12"><%= o.label :reason_for_event %></div>
+          <div class = "col-md-12"><%= o.text_area :reason_for_event, class: "form-control" %></div>
+        </div>
+        <div class = "actions">
+          <%= o.submit class: "btn btn-primary"%>
+        </div>
 
+      <% end %>
+    </fieldset>
+  </div>
+</div>
 
-<% end %>
+<div class="row">
+  <div class='col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1'>
+    <%= link_to 'Back to Dashboard', @this_user %>
+  </div>
+</div>

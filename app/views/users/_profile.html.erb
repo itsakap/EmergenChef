@@ -3,8 +3,8 @@
         <span id='name' class="glyphicon glyphicon-arrow-down"></span>
     </legend>
     <div id='profil'>
-    <%= form_for current_user do |f| %>
-      <%= f.fields_for :profile do |p| %>
+    <%= form_for @this_user do |f| %>
+      <%= f.fields_for :profile, {method: :patch} do |p| %>
         <div class = "form-group clearfix">
           <div class = "col-md-12"><%= p.label :post, "Name of Your Group" %>
           </div>
@@ -33,12 +33,6 @@
           <div class = "col-md-12"><%= p.label :post, "Team Size" %>
           </div>
           <div class = "col-md-12"><%= p.number_field :party_size, class: "form-control" %>
-          </div>
-        </div>
-        <div class = "form-group clearfix">
-          <div class = "col-md-12"><%= p.label :post, "Dietary Preferences" %>
-          </div>
-          <div class = "col-md-12"><%= p.text_field :dietary_preferences, class: "form-control" %>
           </div>
         </div>
         <div class = "form-group clearfix">

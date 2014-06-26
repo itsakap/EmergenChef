@@ -4,8 +4,10 @@
     <%= render partial: "layouts/head.html" %>
   </head>
   <body>
-    <%= render partial: "layouts/header.html" %>
-    <%= yield %>
-    <%= render partial: "layouts/footer.html" %>
+    <div id="container">
+      <%= render partial: "layouts/header.html" %>
+      <%= yield %>
+      <%= render partial: "layouts/footer.html" %>
+    </div>
   </body>
 </html>

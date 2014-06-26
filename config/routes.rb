@@ -6,21 +6,27 @@ EmergenChef::Application.routes.draw do
   update method
 =end
 
-  get "about/adam" => "statics#adam", :as => :adam
-  get "orders/new" => 'orders#new', :as => :new_order
-  resources :orders, only:[:create, :destroy, :edit, :update]
-  get 'orders/:id' => 'orders#show', :as => :show_order
-  post 'orders/:id' => 'orders#alert', :as => :send_order_email
   root 'users#welcome'
-  get 'users' => 'users#index', :as => :users
-  get 'users/:id' => 'users#show', :as => :user
-  patch 'users/:id' => 'users#update'
-  get 'users/:id/verify/:verification_token' => 'users#verify', :as => :verify_user
-  post 'users' => 'users#create'
+  get "about/adam" => "statics#adam", :as => :adam
   get 'sign_up' => 'users#new', :as => :new_user
   delete 'sign_out' => 'auths#destroy', :as => :auths
   get 'sign_in' => 'auths#new', :as => :new_auth
   resources :auths, only:[ :create]
+  
+  #get 'users' => 'users#index', :as => :users
+  #get 'users/:id' => 'users#show', :as => :user
+  #patch 'users/:id' => 'users#update'
+  get 'users/:id/verify/:verification_token' => 'users#verify', :as => :verify_user
+  #post 'users' => 'users#create'
+  patch 'users/:id' => 'users#update'
+  resources :users, except:[:new, :update] do
+    resources :orders do
+    # get "orders/new" => 'orders#new', :as => :new_order
+    # resources :orders, only:[:create, :destroy, :edit, :update]
+      # get 'users/:id/orders/:order_id' => 'orders#show'
+    # post 'orders/:id' => 'orders#alert', :as => :send_order_email
+    end
+  end  
   
   mount Sidekiq::Web => '/sidekiq'
   # The priority is based upon order of creation: first created -> highest priority.

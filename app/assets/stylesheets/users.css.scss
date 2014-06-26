@@ -1,11 +1,11 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com
-@import 'bootstrap';
+
 #video-nest{
   width:280px;
   height:300px;
-  margin:2em 0 0 4em;
+  margin:2em auto 0;
   overflow-x:hidden;
   text-align: center;
   position:relative;
@@ -27,27 +27,6 @@
     left:0;
   }
  }
-.panel{
-  position:absolute;
-  width:300px;
-  height:240px;
-  bottom:10em;
-  .panel-body{
-    p:first-letter{
-      padding-left: 1em;
-    }
-  }
-
-}
-.panel-danger{
-  left:2em;
-}
-.panel-info{
-  right:2em;
-}
-ol{
-  font-size:2em;
-}
 #users li{
   padding-left:2em;
 }
@@ -55,10 +34,14 @@ ol{
   display: none;
 }
 #name{
-  float:right
+  float:right;
 }
-@media only screen and (min-width:768px){
-  .well.col-md-4.col-md-offset-4{
-    margin-top:20px;
-  }
+#name:hover{
+  font-weight: bolder;
+}
+.well.col-md-4.col-md-offset-4 {
+  margin-top:20px;
+}
+.glyphicon-arrow-down{
+  cursor:pointer;
 }
