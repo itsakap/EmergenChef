@@ -16,14 +16,17 @@ class AuthsController < ApplicationController
           session[:user_id] = @user.id
           redirect_to @user
         else
+          #must click link to verify
           redirect_to new_auth_path
-          flash[:error] = "Please check your e-mail and verify your identity." #add button for resending e-mail
+          flash[:error] = "Please check your e-mail and verify your identity." #add button for resending e-mail!!!
         end
       else
+        #invalid password
         redirect_to new_auth_path
         flash[:error] = 'Invalid username and/or password.  Please try again.'
       end
     else
+      #invalide username
       redirect_to new_auth_path
       flash[:error] = 'Invalid username and/or password.  Please try again.'
     end

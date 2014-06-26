@@ -1,0 +1,10 @@
+<div>
+  <%= form_for :user, {url:'/auths', method: :post} do |u| %>
+    <%= u.text_field :username, class: "form-control form-group", :placeholder => "Username" %>
+    <%= u.password_field :password,class: "form-control form-group", :placeholder => "Password" %>
+    <div class = 'text-center'><%= u.submit "Sign In", class: " btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+Don't have an account yet? <%= link_to "Sign up!", new_user_path %>
+

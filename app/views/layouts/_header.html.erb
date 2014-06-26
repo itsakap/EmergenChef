@@ -67,9 +67,9 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-body">
+                <h3>Sign In</h3>
                 <!-- Form Partial for Login -->
-                <%= render :partial => 'layouts/sign_in.html.erb' %>
-
+                <%= render partial:"auths/login.html.erb" %>
               </div>
             </div>
           </div>
@@ -84,7 +84,7 @@
 
                 <!-- Form Partial for Login -->
                 <div>
-                  <%= render partial:"layouts/sign_up.html.erb" %>
+                  <%= render partial:"users/form.html.erb" %>
                 </div>
 
                 <!-- Sign-up link (redirects to users/new)-->
