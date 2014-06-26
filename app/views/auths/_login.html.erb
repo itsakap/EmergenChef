@@ -1,4 +1,4 @@
-<div>
+<div class="sign-in">
   <%= form_for :user, {url:'/auths', method: :post} do |u| %>
     <%= u.text_field :username, class: "form-control form-group", :placeholder => "Username" %>
     <%= u.password_field :password,class: "form-control form-group", :placeholder => "Password" %>

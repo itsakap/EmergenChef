@@ -18,7 +18,7 @@ class AuthsController < ApplicationController
         else
           #must click link to verify
           redirect_to new_auth_path
-          flash[:error] = "Please check your e-mail and verify your identity." #add button for resending e-mail!!!
+          flash[:error] = "Please check your e-mail and verify your identity. #{ ActionController::Base.helpers.link_to 'Resend Email', resend_path(@user) }".html_safe #add button for resending e-mail!!!
         end
       else
         #invalid password
@@ -31,7 +31,12 @@ class AuthsController < ApplicationController
       flash[:error] = 'Invalid username and/or password.  Please try again.'
     end
   end
-  
+  def resend_verification_email
+    @user = User.find(params[:id])
+    Confirmer.delay.welcome(@user.id)
+    redirect_to new_auth_path
+    flash[:notice] = 'Please check your e-mail.'
+  end
   def destroy
     session[:user_id] = nil
     redirect_to new_auth_path

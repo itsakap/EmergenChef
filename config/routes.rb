@@ -11,6 +11,7 @@ EmergenChef::Application.routes.draw do
   get 'sign_up' => 'users#new', :as => :new_user
   delete 'sign_out' => 'auths#destroy', :as => :auths
   get 'sign_in' => 'auths#new', :as => :new_auth
+  get 'auths/resend-email/:id' => 'auths#resend_verification_email', :as => :resend
   resources :auths, only:[ :create]
   
   #get 'users' => 'users#index', :as => :users
