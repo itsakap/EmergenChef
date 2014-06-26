@@ -1,0 +1,19 @@
+<% if flash[:error] %>
+<div class='row'>
+  <div id="error" class = 'col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2 alert alert-dismissable alert-warning'>
+
+  
+    <button type = "button" class = "close" data-dismiss = "alert">x
+    </button>
+    <strong><%= flash[:error] %></strong>
+  </div>
+</div>
+<% elsif notice %>
+<div class='row'>
+  <div id = "error" class = 'col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2 alert alert-dismissable alert-success'>
+    <button type = "button" class = "close" data-dismiss = "alert">x
+    </button>
+    <strong><%= notice %></strong>
+  </div>
+</div>
+<% end %>
