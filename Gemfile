@@ -16,6 +16,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'rails_12factor'
 gem 'bcrypt-ruby', github:'codahale/bcrypt-ruby'
+gem 'newrelic_rpm'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'sidekiq'
