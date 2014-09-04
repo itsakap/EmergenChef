@@ -1,28 +1,22 @@
-== README
+== EmergenChef
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Ruby on Rails CRUD (create, read, update, delete) app.
 
-Things you may want to cover:
+In the future, it will be a private chef service for people pulling all-nighters.
 
-* Ruby version
+Until then, it is a strong demonstration of some features.
 
-* System dependencies
+== Features
 
-* Configuration
+- Background Jobs: Uses Sidekiq, Unicorn, and Redis to move ActionMailer tasks (e-mailing users) to the background.
 
-* Database creation
+- Admin Mode: users#index is only accessible by the admin.  Please see <b>app/controllers/application_controller.rb</b> for the helper method.  Also feel free to look at <b>app/controllers/users_controller.rb</b> for the verification that takes place before <b>[:index, :show, :update]</b>.
 
-* Database initialization
+- E-Mail Activation/Verification: When you create an account on some websites, sometimes you are required to check your e-mail and click on a link to activate the account.  I have replicated this in the users#verify action.  Please check out app/models/user.rb for how to create the verification token.  E-mail templates can be found in app/views/confirmer; if your e-mail is to contain any styling, it should be done inline.
 
-* How to run the test suite
+== Other
 
-* Services (job queues, cache servers, search engines, etc.)
+- I made the EmergenChef logo in <a href="http://www.gimp.org/">GIMP</a>
+- The video on the home page uses the HTML5 video tag.  The TV is a PNG file with a transparent center.
 
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+www.emergenchef.herokuapp.com
