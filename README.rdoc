@@ -12,7 +12,7 @@ Until then, it is a strong demonstration of some features.
 
 - <i>Admin Mode:</i> <b>users#index</b> is only accessible by the admin.  Please see <b>app/controllers/application_controller.rb</b> for the helper method.  Also feel free to look at <b>app/controllers/users_controller.rb</b> for the verification that takes place before <b>[:index, :show, :update]</b>.
 
-- <i>E-Mail Activation/Verification:</i> When you create an account on some websites, sometimes you are required to check your e-mail and click on a link to activate the account.  I have replicated this in the users#verify action.  Please check out app/models/user.rb for how to create the verification token.  E-mail templates can be found in app/views/confirmer; if your e-mail is to contain any styling, it should be done inline.
+- <i>E-Mail Activation/Verification:</i> When you create an account on some websites, sometimes you are required to check your e-mail and click on a link to activate the account.  I have replicated this in the users#verify action.  Please check out <b>app/models/user.rb</b> for how to create the verification token.  E-mail templates can be found in <b>app/views/confirmer</b>; if your e-mail is to contain any styling, it should be done <u>inline</u>.
 
 == Other
 
