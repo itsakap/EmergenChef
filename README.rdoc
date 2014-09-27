@@ -25,7 +25,7 @@ Until then, it is a strong demonstration of some features.
 
 == Other
 
-- I made the EmergenChef logo using GIMP[http://www.gimp.org]
+- I designed the EmergenChef logo using GIMP[http://www.gimp.org]
 - The video on the home page uses the HTML5 video tag.  The TV is a PNG file with a transparent center.
 
 http://emergenchef.herokuapp.com
