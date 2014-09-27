@@ -6,6 +6,15 @@ In the future, it will be a private chef service for people pulling all-nighters
 
 Until then, it is a strong demonstration of some features.
 
+== Technologies
+
+- Ruby on Rails
+- MongoDB Database
+- GIMP[http://www.gimp.org]
+- Styled with Twitter Bootstrap
+- ActionMailer Gem
+- Sidekiq, Redis, Unicorn (for background jobs)
+
 == Features
 
 - <i>Background Jobs:</i> Uses Sidekiq, Unicorn, and Redis to move ActionMailer tasks (e-mailing users) to the background.
